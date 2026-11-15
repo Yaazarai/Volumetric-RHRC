@@ -1,10 +1,10 @@
 # Volumetric-RHRC
 Volumetric Ring Holographic Radiance Cascades
 
-Ring HRC is the origin of how Holographic Radiance Cascades began. however it has no formal spec or implementation. The following is a well-defined implementation of Ring-HRC that uses ring-based planar holographic radiance transfer combined with the merging scheme of [Vanilla HRC](https://github.com/Yaazarai/Volumetric-HRC) for tightly coupled merging.
+Ring HRC is the origin of how [Holographic Radiance Cascades](https://github.com/entropylost/amitabha) began. However it has no formal paper from Adrian Margel the original inventor of the idea sited in the plane-based HRC paper. The following is a well-defined implementation of Ring-HRC that uses ring-based planar holographic radiance transfer combined with the merging scheme of [Vanilla HRC](https://github.com/Yaazarai/Volumetric-HRC) for tightly coupled merging.
 
 ## Ring Holography
-The core idea is that holograms represent a plane of radiance contributions over several different perspectives. Rings and planes are synonymous in the sense that they're conceptually the same object from different viewing perspectives. A plane is a ring zoomed into an infinite distance and vice versa.
+The core idea is that holograms represent a [plane of radiance contributions over several different perspectives](https://www.youtube.com/watch?v=EmKQsSDlaa4). Rings and planes are synonymous in the sense that they're conceptually the same object from different viewing perspectives. A plane is a ring zoomed into an infinite distance and vice versa.
 <img width="999" height="921" alt="sketch" src="https://github.com/user-attachments/assets/3bd3b6f2-8fc4-49f4-821d-559bcacc86b2" />
 
 As such we get the concept of ring-based holography. Imagine that we divide the scene into a set of probes like in normal RC where we halve the spatial resolution along each axis. Instead of storing a single probe we store a set of probes along a ring. Where the ring represents the point of our original RC probe and the size of each ring is defined as the `sqrt(2) * interval` allowing the rings to overlap maximally within the perimeter of their nearest CN+1 probe.
