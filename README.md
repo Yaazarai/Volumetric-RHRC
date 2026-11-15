@@ -25,7 +25,7 @@ The scaling factor of the number of probes/rays per ring is entirely arbitrary, 
 | 9     | 2     | 2      | 1024 | 1024   | 4,194,304 |
 | 10    | 1     | 1      | 2048 | 2048   | 4,194,304 |
 
-In discrete space the number of points along a circle can be represented as the number of points on a box of the same radius. In this case we're using 1/2 that distribution where each ring as roughly 1 probe every 2 pixels. This allows for a bit of spatial interpolation when probes/rays don't line up perfectly, but not so much that we break occlusion.
+In discrete space the number of points along a circle can be represented as the number of points on a box perimeter (4R) of the same radius. In this case we're using 1/2 that distribution where each ring as roughly 1 probe every 2 pixels. This allows for a bit of spatial interpolation when probes/rays don't line up perfectly, but not so much that we break occlusion.
 
 ## Hemispherical Rays/Cones
 Rays are cast outward away from the ring distributed in a hemisphere merging with the nearest CN+1 ring.
