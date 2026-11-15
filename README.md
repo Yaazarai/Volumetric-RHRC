@@ -46,3 +46,9 @@ Rays are cast outward away from the ring distributed in a hemisphere merging wit
 <img width="1368" height="379" alt="image" src="https://github.com/user-attachments/assets/049f5a63-f742-426f-a1b8-3b3a04a603a0" />
 You can imagine that when merging from the highest cascade (CN) to the lowest cascade (C0) the C0 probe will always contain a ray that lies approaches the tangent of the ring resulting in a hemispherical distribution in both directions to capture every perspective.
 <img width="1316" height="1272" alt="image" src="https://github.com/user-attachments/assets/f1526734-823c-4d21-a904-26c5c61daee6" />
+
+## Cone Merging
+In Vanilla HRC merging rays is converted into merging cones by using extra one extra say per probe so that we can shared a parallel ray with an adjacent cone. This way we get perfect ray occupancy throughout the scene. Like so:
+<img width="1637" height="1595" alt="image" src="https://github.com/user-attachments/assets/533ec318-c3be-4854-bd11-f644819331a1" />
+
+Merging via rings works fundamentally the same way--again due to the parallelism between ring holography and planar holography. Each ray texel allocation in memory represents a cone and we cast a left ray and a right ray. Optionally we can pre-cast all of our rays and cache them in a texture to cut the total ray usage in half because each cone shares a ray.
