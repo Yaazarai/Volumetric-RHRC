@@ -1,3 +1,5 @@
+IN PROGRESS
+
 # Volumetric Ring Holographic Radiance Cascades (R-HRC)
 
 Ring HRC is the origin of how [Holographic Radiance Cascades](https://github.com/entropylost/amitabha) began. However it has no formal paper from Adrian Margel the original inventor of the idea sited in the plane-based HRC paper. The following is a well-defined implementation of Ring-HRC that uses ring-based planar holographic radiance transfer combined with the merging scheme of [Vanilla HRC](https://github.com/Yaazarai/Volumetric-HRC) for tightly coupled merging.
