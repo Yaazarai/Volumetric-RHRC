@@ -29,9 +29,7 @@ The scaling factor of the number of probes/rays per ring is entirely arbitrary, 
 In discrete space the number of points along a circle can be represented as the number of points on a box of the same radius. In this case we're using 1/2 that distribution where each ring as roughly 1 probe every 2 pixels. This allows for a bit of spatial interpolation when probes/rays don't line up perfectly, but not so much that we break occlusion.
 
 ## Hemispherical Rays/Cones
-Rays are cast outward away from the ring distributed in a hemisphere merging with the nearest CN+1 ring. This is because a CN ray merging with a probe in CN+1 will always contain a ray that will approach the tangent angle of the ring in both directions, equating to a hemisphere.
+Rays are cast outward away from the ring distributed in a hemisphere merging with the nearest CN+1 ring.
 <img width="1368" height="379" alt="image" src="https://github.com/user-attachments/assets/049f5a63-f742-426f-a1b8-3b3a04a603a0" />
-<img width="1131" height="1076" alt="image" src="https://github.com/user-attachments/assets/559eface-f4f4-4346-be6c-3b07a8329cb0" />
-
-You can also imagine that a C0 when merging from the highest cascade to the lowest cascade the probe will always contain a ray that lies exactly on the perimeter of the ring as well and producing a straight line from the probe would approach the tangent of the ring.
-<img width="1316" height="1272" alt="image" src="https://github.com/user-attachments/assets/51fea965-9116-4b4d-b038-d46cdd306d79" />
+You can imagine that when merging from the highest cascade (CN) to the lowest cascade (C0) the C0 probe will always contain a ray that lies approaches the tangent of the ring resulting in a hemispherical distribution in both directions to capture every perspective.
+<img width="1316" height="1272" alt="image" src="https://github.com/user-attachments/assets/f1526734-823c-4d21-a904-26c5c61daee6" />
