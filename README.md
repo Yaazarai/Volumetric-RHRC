@@ -52,6 +52,6 @@ In Vanilla HRC merging rays is converted into merging cones by using extra one e
 <img width="1637" height="1595" alt="image" src="https://github.com/user-attachments/assets/533ec318-c3be-4854-bd11-f644819331a1" />
 
 Merging via rings works fundamentally the same way--again due to the parallelism between ring holography and planar holography. Note that this is only one perspective and merging pattern, placement/distribution of rings depends on pixel position within the scene when merging.
-<img width="1844" height="1763" alt="image" src="https://github.com/user-attachments/assets/3517e029-a181-455a-8d75-006e0d467a87" />
+<img width="1844" height="1763" alt="image" src="https://github.com/user-attachments/assets/ce3348ae-2a1e-4d91-96c5-f99a94d4a27c" />
 
 Each ray texel allocation in memory represents a cone and we cast a left ray and a right ray. Optionally we can pre-cast all of our rays and cache them in a texture to cut the total ray usage in half because each cone shares a ray. The benefit of rings however is that we're not locked to frustums, so we can deal with the full angular radiance field and avoid discontinuities between frustums.
