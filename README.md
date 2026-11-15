@@ -9,7 +9,7 @@ The core idea is that holograms represent a [plane of radiance contributions ove
 <img width="999" height="921" alt="sketch" src="https://github.com/user-attachments/assets/3bd3b6f2-8fc4-49f4-821d-559bcacc86b2" />
 
 As such we get the concept of ring-based holography. Imagine that we divide the scene into a set of probes like in Vanilla RC where we halve the spatial resolution along each axis. Instead of storing a single probe we store a set of probes along a ring. Where the ring represents the point of our original RC probe and the size of each ring is defined as the `sqrt(2) * interval` allowing the rings to overlap maximally within the perimeter of their nearest CN+1 probe.
-<img width="1916" height="716" alt="image" src="https://github.com/user-attachments/assets/271e477e-b455-40d8-bab5-cfb716172a04" />
+<img width="1957" height="709" alt="image" src="https://github.com/user-attachments/assets/b156e132-705d-46ff-82ca-8505156b9b8c" />
 
 The scaling factor of the number of probes/rays per ring is entirely arbitrary, but in the exercise of providing a well defined specification we start with 4 rays in C0, 4 rays + 4 probes in C1, 8 rays + 8 probes in C2 and so on. This means each cascade scales at a constant size:
 
@@ -43,7 +43,8 @@ In discrete space the number of points along a circle can be represented as the 
 
 ## Hemispherical Rays/Cones
 Rays are cast outward away from the ring distributed in a hemisphere merging with the nearest CN+1 ring.
-<img width="1368" height="379" alt="image" src="https://github.com/user-attachments/assets/049f5a63-f742-426f-a1b8-3b3a04a603a0" />
+<img width="2654" height="709" alt="image" src="https://github.com/user-attachments/assets/97768cc8-e277-4429-bf22-d9cf79cd65ee" />
+
 You can imagine that when merging from the highest cascade (CN) to the lowest cascade (C0) the C0 probe will always contain a ray that lies approaches the tangent of the ring resulting in a hemispherical distribution in both directions to capture every perspective.
 <img width="1316" height="1272" alt="image" src="https://github.com/user-attachments/assets/f1526734-823c-4d21-a904-26c5c61daee6" />
 
