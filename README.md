@@ -51,4 +51,7 @@ You can imagine that when merging from the highest cascade (CN) to the lowest ca
 In Vanilla HRC merging rays is converted into merging cones by using extra one extra say per probe so that we can shared a parallel ray with an adjacent cone. This way we get perfect ray occupancy throughout the scene. Like so:
 <img width="1637" height="1595" alt="image" src="https://github.com/user-attachments/assets/533ec318-c3be-4854-bd11-f644819331a1" />
 
-Merging via rings works fundamentally the same way--again due to the parallelism between ring holography and planar holography. Each ray texel allocation in memory represents a cone and we cast a left ray and a right ray. Optionally we can pre-cast all of our rays and cache them in a texture to cut the total ray usage in half because each cone shares a ray. The benefit of rings however is that we're not locked to frustums, so we can deal with the full angular radiance field and avoid discontinuities between frustums.
+Merging via rings works fundamentally the same way--again due to the parallelism between ring holography and planar holography. Note that this is only one perspective and merging pattern, placement/distribution of rings depends on pixel position within the scene when merging.
+<img width="1844" height="1763" alt="image" src="https://github.com/user-attachments/assets/3517e029-a181-455a-8d75-006e0d467a87" />
+
+Each ray texel allocation in memory represents a cone and we cast a left ray and a right ray. Optionally we can pre-cast all of our rays and cache them in a texture to cut the total ray usage in half because each cone shares a ray. The benefit of rings however is that we're not locked to frustums, so we can deal with the full angular radiance field and avoid discontinuities between frustums.
