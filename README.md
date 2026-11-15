@@ -12,7 +12,7 @@ As such we get the concept of ring-based holography. Imagine that we divide the 
 
 The scaling factor of the number of probes/rays per ring is entirely arbitrary, but in the exercise of providing a well defined specification we start with 4 rays in C0, 4 rays + 4 probes in C1, 8 rays + 8 probes in C2 and so on. This means each cascade scales at a constant size:
 
-| Level | Width | Height | Rays | Probes | Total Rays |
+| Level | W-Rings | H-Rings | Rays | Probes | Total Rays |
 | ----- | ----- | ------ | ---- | ------ | --------- |
 | 0     | 1024  | 1024   | 4    | 1      | 4,194,304 |
 | 1     | 512   | 512    | 4    | 4      | 4,194,304 |
