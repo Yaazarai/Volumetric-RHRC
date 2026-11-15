@@ -56,3 +56,9 @@ Merging via rings works fundamentally the same way--again due to the parallelism
 <img width="1844" height="1763" alt="image" src="https://github.com/user-attachments/assets/3eb6d965-2ae5-4e9c-ae76-5de1fbb6a509" />
 
 Each ray texel allocation in memory represents a cone and we cast a left ray and a right ray. Optionally we can pre-cast all of our rays and cache them in a texture to cut the total ray usage in half because each cone shares a ray. The benefit of rings however is that we're not locked to frustums, so we can deal with the full angular radiance field and avoid discontinuities between frustums.
+
+## Reprojection / Interpolation
+When a ray lands between two probes we can take those two nearest probes and use them to reproject to produce the intended merge result. In this case the reprojection is done by taking the arc distance from ray to the lowest-indexed probe and using that to mix the two probes: `mix(low_probe, high_probe, normal_arc_dist)`. Even if a ray merges with the probes at the [2pi,0] boundary or {N-1,N or 0] we don't need any extra math to produce the appropriate weight. Simply take the arc distance from the ray to the lowest indexed probe which will be N-1 since the highest indexed probe will be indexed at N then modulo N to get zero--making the 0 probe higher indexed from its original index of N.
+
+Here the yellow probes are the bounding lower and higher indexed probes and the green point is the reprojected point that we interpolate via arc distance:
+<img width="1361" height="1353" alt="image" src="https://github.com/user-attachments/assets/6d773d31-cdf8-4db7-ac7e-484cbf67f863" />
